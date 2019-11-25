@@ -1,0 +1,8 @@
+package com.ustglobal.jdbc_assesement.dto;
+
+public class MobileBean {
+private String name;
+private int number;
+private String group;
+
+}

@@ -1,0 +1,12 @@
+package com.ustglobal.jdbc_assesement.util;
+
+import com.ustglobal.jdbc_assesement.dao.MobileDAO;
+import com.ustglobal.jdbc_assesement.dao.MobileDAOImpl;
+
+public class MobileManager {
+private MobileManager() {}
+
+public static MobileDAO getMobileDAO() {
+	return new MobileDAOImpl();
+}
+}

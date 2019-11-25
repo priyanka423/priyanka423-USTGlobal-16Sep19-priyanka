@@ -1,0 +1,98 @@
+package com.ustglobal.jdbc_assesement1;
+
+import java.sql.*;
+import java.util.List;
+import java.util.Scanner;
+
+import com.ustglobal.jdbc_assesement1.dao.MobileDAO;
+import com.ustglobal.jdbc_assesement1.dto.MobileBean;
+import com.ustglobal.jdbc_assesement1.util.MobileManager;
+public class App {
+	public static void main(String[] args) {
+
+		System.out.println("Press 1 to show all the contacts");
+		System.out.println("Press 2 to search for contact(using name)");
+		System.out.println("Press 3 to operate on contact");
+
+		Scanner sc=new Scanner(System.in);
+		int ch=sc.nextInt();
+		int ch1=sc.nextInt();
+
+		switch(ch){
+
+		case 1:
+			MobileDAO dao=MobileManager.getMobileDAO();
+			List<MobileBean> result=dao.getAllContact();
+
+			for(MobileBean bean: result) {
+				System.out.println("Name "+bean.getName());
+				System.out.println("Number "+bean.getNumber());
+				System.out.println("Group"+bean.getGroups());
+			}
+			break;
+
+
+		case 2:
+			MobileDAO impl5=MobileManager.getMobileDAO();
+			String id5=sc.next();
+			MobileBean result2=impl5.searchData(id5);
+			if(result2!=null) {
+//				System.out.println("Name "+result2.getName());
+				System.out.println("Number "+result2.getNumber());
+				System.out.println("Group "+result2.getGroups());
+
+			}else {
+				System.out.println("data not found");
+			}
+			break;
+		
+		
+	case 3:
+		System.out.println(@press 3 to add the contact);
+		System.out.println("press 2 to delete contact");
+		System.out.println("press 3 to edit the contact");
+		switch(ch1) {
+//
+		case 1:
+			MobileDAO impl2=MobileManager.getMobileDAO();
+			int number=sc.nextInt();
+			String name=sc.next();
+			String groups=sc.next();
+			String gender=sc.next();
+			MobileBean bean1=new MobileBean();
+			bean1.setName(name);
+			bean1.setNumber(number);
+			bean1.setGroups(groups);
+			int res=impl2.insertContactData(bean1);
+			System.out.println(res+ "Rows() Inserted");
+			break;
+//
+		case 2:
+			MobileDAO impl3=MobileManager.getMobileDAO();
+			String name2=sc.next();
+			int number2=sc.nextInt();
+			String groups2=sc.next();
+
+			MobileBean bean2=new MobileBean();
+
+			bean2.setName(name2);
+			bean2.setNumber(number2);
+			bean2.setGroups(groups2);
+//
+			int res2=impl3. updateMobileData(bean2);
+			System.out.println(res2 + "Row Updated");
+			break;
+//
+		case 3:
+			MobileDAO impl4=MobileManager.getMobileDAO();
+			String name3=sc.next();
+			int res3=impl4.deleteMobileData(name3);
+			System.out.println(res3 + "Row(s) deleted");
+			break;
+
+
+		}
+//
+	} //end if main
+} //end of App class
+

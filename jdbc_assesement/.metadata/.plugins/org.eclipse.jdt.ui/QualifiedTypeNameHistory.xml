@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.ustglobal.jdbc_assesement.dto.MobileBean"/>
+<fullyQualifiedTypeName name="com.ustglobal.jdbc_assesement.dao.MobileDAOImpl"/>
+<fullyQualifiedTypeName name="com.ustglobal.jdbc_assesement.dao.MobileDAO"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.ustglobal.jdbc_assesement1.util.MobileManager"/>
+<fullyQualifiedTypeName name="com.ustglobal.jdbc_assesement1.dto.MobileBean"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

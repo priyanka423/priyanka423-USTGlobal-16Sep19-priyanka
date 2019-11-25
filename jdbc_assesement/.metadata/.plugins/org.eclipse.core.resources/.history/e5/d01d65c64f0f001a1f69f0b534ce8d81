@@ -1,0 +1,5 @@
+package com.ustglobal.jdbc_assesement1.dao;
+
+public interface MobileDAO {
+
+}

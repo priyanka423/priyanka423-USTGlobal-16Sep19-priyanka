@@ -1,0 +1,231 @@
+package com.ustglobal.jdbc_assesement1.dao;
+
+import java.sql.*;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import com.mysql.jdbc.Driver;
+import com.ustglobal.jdbc_assesement1.dto.MobileBean;
+
+public class MobileDAOImpl implements MobileDAO {
+	public List<MobileBean> getAllContact() {
+		String url="jdbc:mysql://localhost:3306/contact_file?user=root&password=root";
+		String sql="select * from contact";
+		Connection conn=null;
+		Statement stmt=null;
+		ResultSet rs=null;
+		try {
+
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection(url);
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+
+			ArrayList<MobileBean> result=new ArrayList<MobileBean>();
+			while(rs.next()) {
+				MobileBean bean=new MobileBean();
+				String name=rs.getString("name");
+				bean.setName(name);
+				int number=rs.getInt("number");
+				bean.setNumber(number);
+				String groups=rs.getString("groups");
+				bean.setGroups(groups);
+				result.add(bean);
+			}
+			return result;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			try {
+				if(conn!=null) {
+					conn.close();
+				}
+				if(stmt!=null) {
+					stmt.close();
+				}
+				if(rs!=null) {
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		} //end of the try-catch-finally
+	} //end of getAllMobile
+
+
+
+
+
+
+
+	public int insertContactData(MobileBean bean) {
+		String url="jdbc:mysql://localhost:3306/contact_file?user=root&password=root";
+		String sql="insert into contact values(?,?,?)";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection(url);
+			pstmt=conn.prepareStatement(sql);
+
+			pstmt.setString(1,bean.getName());
+
+			pstmt.setInt(2,bean.getNumber());
+
+			pstmt.setString(3,bean.getGroups());
+
+			int count=pstmt.executeUpdate();
+			return count;
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+		finally {
+			try {
+				if(conn!=null) {
+					conn.close();
+				}
+				if(pstmt!=null) {
+					pstmt.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	public int deleteMobileData(String name) {
+		String url="jdbc:mysql://localhost:3306/contact_file?user=root&password=root";
+		String sql="delete from contact where name=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection(url);
+			pstmt=conn.prepareStatement(sql);
+
+			pstmt.setString(1,name);
+			int count=pstmt.executeUpdate();
+			return count;
+
+		}catch(Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+		finally {
+			try {
+				if(conn!=null) {
+					conn.close();
+				}
+				if(pstmt!=null) {
+					pstmt.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+
+
+
+
+
+	public MobileBean searchData(String name) {
+		String url="jdbc:mysql://localhost:3306/contact_file?user=root&password=root";
+		String sql="select * from contact where name=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		try {
+
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection(url);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			rs=pstmt.executeQuery();
+
+			//				ArrayList<EmployeeBean> result2=new ArrayList<EmployeeBean>();
+			if(rs.next()) {
+				MobileBean bean=new MobileBean();
+				//				bean.setName(rs.getString("name"));
+				bean.setNumber(rs.getInt("number"));
+				bean.setGroups(rs.getString("groups"));
+				return bean;
+
+			}else {
+				return null;
+			}
+
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}finally{
+			try {
+				int press;
+				if(conn!=null) {
+					conn.close();
+				}
+				if(pstmt!=null) {
+					pstmt.close();
+				}
+				if(rs!=null) {
+					rs.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}// end of try-catch block
+	}// end of the searchData()
+@Override
+	public int updateMobileData(MobileBean bean) {
+		String url="jdbc:mysql://localhost:3306/contact_file?user=root&password=root";
+		String sql="update contact set number=?,groups=? where name=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn=DriverManager.getConnection(url);
+			pstmt=conn.prepareStatement(sql);
+
+			pstmt.setString(3,bean.getName());
+
+			pstmt.setInt(1,bean.getNumber());
+
+			pstmt.setString(2,bean.getGroups());
+
+			int count=pstmt.executeUpdate();
+			return count;
+
+
+		}catch(Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+		finally {
+			try {
+				if(conn!=null) {
+					conn.close();
+				}
+				if(pstmt!=null) {
+					pstmt.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+
+	}
+}
+
+
+
+
