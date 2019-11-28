@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;empapp&apos;&#x0D;&#x0A;- Original project: &apos;empapp&apos;&#x0D;&#x0A;- Original element: &apos;empapp/src/com.ustglobal.empapp.sto&apos;" description="Delete element" element1="/src&lt;com.ustglobal.empapp.sto" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1573207342542" subPackages="false" version="1.0"/>
+</session>

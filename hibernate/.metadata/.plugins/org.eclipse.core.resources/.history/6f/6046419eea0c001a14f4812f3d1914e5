@@ -1,0 +1,19 @@
+package com.ustglobal.jpawithhibrnate.onetoone;
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+import lombok.Data;
+@Data
+@Entity
+@Table(name="votercard")
+public class VoterCard {
+
+	@Column
+	private int vid;
+	@Column
+	private String vname;
+
+
+}

@@ -1,0 +1,14 @@
+package com.ustglobal.sorting.list;
+
+public class Laptop {
+double price;
+String name;
+int ram;
+public Laptop(double price, String name, int ram) {
+	super();
+	this.price = price;
+	this.name = name;
+	this.ram = ram;
+}
+
+}

@@ -1,0 +1,7 @@
+package com.ustglobal.jpawithhibernate;
+
+public class InsertQuery {
+	public static void main(String[] args) {
+
+	}
+}

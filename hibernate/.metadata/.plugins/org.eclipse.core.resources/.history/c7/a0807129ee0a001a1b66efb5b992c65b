@@ -1,0 +1,13 @@
+package com.ustglobal.dynamicinsertquery;
+
+import com.mysql.jdbc.*;
+
+public class InsertQuery {
+
+	public static void main(String[] args) {
+		
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		
+	}
+}

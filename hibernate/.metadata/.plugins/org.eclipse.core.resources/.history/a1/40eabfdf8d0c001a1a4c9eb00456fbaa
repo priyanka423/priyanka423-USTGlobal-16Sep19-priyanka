@@ -1,0 +1,17 @@
+package com.ustglobal.jpawithhibernate.onetoone;
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+
+import lombok.Data;
+@Data
+@Entity
+public class Person {
+	@Column
+	private int id;
+	@Column
+	private String name;
+	
+}

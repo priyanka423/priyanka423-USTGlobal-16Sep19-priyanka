@@ -1,0 +1,5 @@
+package com.ustglobal.assignment2.dto;
+
+public class Student {
+
+}

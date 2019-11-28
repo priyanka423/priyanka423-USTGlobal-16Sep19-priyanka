@@ -1,0 +1,19 @@
+package com.ustglobal.jpawithhibernate;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
+public class TestOneToOne {
+public static void main(String[] args) {
+	
+	EntityManager entityManager=null;
+	EntityTransaction entityTransaction=null;
+	
+	try {
+		
+	}catch(Exception e) {
+		e.printStackTrace();
+		entityTransaction.rollback();
+	}
+}
+}

@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+}
+th {
+  padding-left: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+.body {
+  background-image: url(images/imageback.jpeg);
+  background-size: cover;
+  height: 560px;
+}
+p {
+  color: white;
+  margin-top: 120px;
+  text-align: center;
+  font-size: 40px;
+}
+
+Over {
+  color: white;
+  text-align: center;
+}
+#search {
+  height: 40px;
+  width: 700px;
+  margin-left: 300px;
+}
+
+#dropdown {
+  height: 40px;
+  margin-top: 1px;
+  width: 80px;
+  margin-left: -7px;
+  border: 0px solid red;
+  /* background-color: white; */
+}
+.nav-content li {
+  display: inline;
+  font-size: 20px;
+  color: white;
+}
+.nav-content {
+  display: inline-block;
+}
+
+#logo {
+  font-family: Verdana;
+  font-weight: bold;
+  color: blue !important;
+  font-size: 30px;
+}
+
+h4 {
+  color: rgba(255, 255, 255, 0.637);
+  font-size: 18px;
+  /* margin-left: 328px; */
+  text-align: center;
+}
+
+h5 {
+  color: rgba(255, 255, 255, 0.808);
+  font-size: 16px;
+  padding: 110px;
+  text-align: center;
+}
+img {
+  height: 200px;
+  width: 415px;
+  border: 1px solid;
+  margin-top: 29px;
+  margin-left: 16px;
+  margin-right: 10px;
+}
+h1 {
+  color: rgba(0, 0, 0, 0.829);
+  font-size: 40px;
+  text-align: center;
+}
+h3 {
+  color: rgba(0, 0, 0, 0.863);
+  font-size: 17px;
+  text-align: center;
+}
+.pixabay {
+  margin-left: 40px;
+  font-size: 17px;
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.65);
+}
+pixabay:hover {
+  /* margin-left:40px;
+    font-size:17px;
+    margin-top:20px; */
+  color: red;
+}

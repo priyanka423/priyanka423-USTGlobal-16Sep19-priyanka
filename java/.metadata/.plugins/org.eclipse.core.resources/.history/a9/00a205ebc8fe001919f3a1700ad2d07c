@@ -1,0 +1,14 @@
+package com.ustglobal.sorting.list;
+
+public class Student {
+int id;
+String name;
+double percwntage;
+public Student(int id, String name, double percwntage) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.percwntage = percwntage;
+}
+
+}

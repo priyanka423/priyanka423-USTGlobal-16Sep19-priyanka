@@ -1,0 +1,28 @@
+package com.ustglobal.jpawithhibernate;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.ustglobal.jpawithhibernate.dto.ProductInfo;
+
+public class GetReference {
+
+	public static void main(String[] args) {
+		
+		EntityManager entityManager=null;
+		EntityTransaction entityTransaction=null;
+		try {
+		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("test");
+		entityManager=entityManagerFactory.createEntityManager();
+		ProductInfo productInfo=entityManager.getReference(ProductInfo.class, 101);
+		
+		System.out.println("ID: "+productInfo.getPid());
+		System.out.println("Name: "+productInfo.getPname());
+		System.out.println("Quantity: "+productInfo.getQuantity());
+			}catch(Exception e) {
+		e.printStackTrace();
+	
+	}
+}

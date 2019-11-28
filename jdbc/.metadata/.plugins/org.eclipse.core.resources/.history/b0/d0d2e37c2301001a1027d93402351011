@@ -1,0 +1,5 @@
+package com.ustglobal.jdbcapp3;
+
+public class DynamicSelect {
+
+}

@@ -1,0 +1,7 @@
+8package com.ustglobal.jpawithhibernate;
+
+public class ReAtching {
+public static void main(String[] args) {
+	
+} // end of the main method
+} // end of the ReAttaching class

@@ -1,0 +1,59 @@
+package com.ustglobal.jpawithhibernate;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+import com.ustglobal.jpawithhibernate.onetomany.Pencil;
+import com.ustglobal.jpawithhibernate.onetomany.PencilBox;
+import com.ustglobal.jpawithhibrnate.onetoone.VoterCard;
+
+public class TestManyToOne {
+	public static void main(String[] args) {
+
+		PencilBox p=new PencilBox();
+		p.setBid(10);
+		p.setBname("ph");
+
+		Pencil pen=new Pencil();
+		pen.setPid(2);
+		pen.setColor("pink");
+		pen.setPencilBox(p);
+
+		Pencil pen1=new Pencil();
+		pen1.setPid(3);
+		pen1.setColor("brown");
+		pen1.setPencilBox(p);
+
+
+		EntityManager entityManager=null;
+		EntityTransaction entityTransaction=null;
+
+		try {
+			EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("test");
+			entityManager=entityManagerFactory.createEntityManager();
+			entityTransaction=entityManager.getTransaction();
+			entityTransaction.begin();
+//					PencilBox pencilBox=entityManager.find(PencilBox.class,10);
+//					List <Pencil> li=pencilBox.getPencil();
+//					for(Pencil p1:li) {
+//						System.out.println(p1.getColor());
+//						System.out.println(p1.getPid());
+			// unidirectional //
+			entityManager.persist(pen);
+			entityManager.persist(pen1);
+			System.out.println("Record Saved");
+//					}
+			entityTransaction.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+			entityTransaction.rollback();
+		}
+		entityManager.close();
+	}
+}
+
+

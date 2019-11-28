@@ -1,0 +1,55 @@
+package com.ustglobal.empapp;
+
+import java.sql.*;
+import java.util.List;
+import java.util.Scanner;
+
+import com.ustglobal.empapp.dao.EmployeeDAOImpl;
+import com.ustglobal.empapp.dto.EmployeeBean;
+public class App {
+	public static void main(String[] args) {
+
+		System.out.println("Press 1 to get all the data");
+		System.out.println("Press 2 to insert the data");
+		System.out.println("Press 3 to update employee data");
+		System.out.println("Press 4 to delete employee data");
+		System.out.println("Press 5 to search single employee data");
+
+		Scanner sc=new Scanner(System.in);
+		int ch=sc.nextInt();
+
+		switch(ch){
+
+		case 1:
+			EmployeeDAOImpl impl=new EmployeeDAOImpl();
+			List<EmployeeBean> result=impl.getAllEmployee();
+
+			for(EmployeeBean bean: result) {
+				System.out.println(" Id :"+bean.getId());
+				System.out.println("Name "+bean.getName());
+				System.out.println("Sal "+bean.getSal());
+				System.out.println("Gender"+bean.getGender());
+			}
+			break;
+		case 2:
+			EmployeeDAOImpl impl2=new EmployeeDAOImpl();
+			int id=sc.nextInt();
+			EmployeeBean result2=impl2.serchEmployeeData(id);
+			if(result2!=null) {
+					System.out.println(" Id :"+result2.getId());
+					System.out.println("Name "+result2.getName());
+					System.out.println("Sal "+result2.getSal());
+					System.out.println("Gender"+result2.getGender());
+				
+			}else {
+				System.out.println("data not found");
+			}
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+		}
+	} //end if main
+} //end of App class

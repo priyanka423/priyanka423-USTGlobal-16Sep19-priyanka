@@ -1,0 +1,18 @@
+package com.ustglobal.jpawithhibernate.jpql;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+public class UpdateJpqlQuery {
+public static void main(String[] args) {
+	
+	EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("test");
+	EntityManager entityManager=entityManagerFactory.createEntityManager();
+	String jpql="update ProductInfo set pname='Mobile' where pid=102";
+	Query query=entityManager.createQuery(jpql);
+	System.out.println("updated data");
+	
+}
+}

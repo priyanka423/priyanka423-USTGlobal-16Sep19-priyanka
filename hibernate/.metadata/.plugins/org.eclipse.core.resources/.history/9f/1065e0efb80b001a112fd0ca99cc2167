@@ -1,0 +1,17 @@
+package com.ustglobal.assignment2;
+
+import javax.persistence.EntityTransaction;
+
+public class InsertQuery {
+public static void main(String[] args) {
+	EntityManager entitymanager=null;
+	EntityTransaction entityTransaction=null;
+	
+	try {
+		
+	}catch(Exception e) {
+		e.printStackTrace();
+		entityTransaction.rollback();
+	}
+}
+}

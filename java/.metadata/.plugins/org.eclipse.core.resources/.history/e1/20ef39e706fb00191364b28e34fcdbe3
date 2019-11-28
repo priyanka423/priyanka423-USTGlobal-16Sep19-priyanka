@@ -1,0 +1,11 @@
+package com.ustglobal.clone;
+
+public class TestE {
+public static void main(String[] args) {
+	Person p=new Person(12,"ravi");
+	System.out.println("p id "+p.id);
+	System.out.println("p name "+p.name);
+	Object o=p.clone();
+	
+}
+}

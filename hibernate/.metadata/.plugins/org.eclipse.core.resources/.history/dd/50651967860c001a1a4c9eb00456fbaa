@@ -1,0 +1,34 @@
+package com.ustglobal.jpawithhibernate.jpql;
+
+import javax.persistence.Query;
+
+import com.ustglobal.jpawithhibernate.dto.ProductInfo;
+
+import java.util.List;
+
+//import java.util.ArrayList;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class ReadByJpqlQuery {
+public static void main(String[] args) {
+	
+	EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("test");
+	EntityManager entityManager=entityManagerFactory.createEntityManager();
+//	String jpql="from ProductInfo";
+	String jpql="select pname from ProductInfo";
+	Query query=entityManager.createQuery(jpql);
+	List <String> li=query.getResultList();
+//	ArrayList<ProductInfo> al=new ArrayList();
+	for(String productInfo:li) {
+		System.out.println(productInfo);
+//		System.out.println(productInfo.getPname());
+//		System.out.println(productInfo.getQuantity());
+	
+	}
+	
+	
+} // end of the main method
+} // end of the ReadByJpqlQuery

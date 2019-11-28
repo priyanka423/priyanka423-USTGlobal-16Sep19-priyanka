@@ -1,0 +1,17 @@
+package com.ustglobal.jdbcapp3;
+
+import java.sql.*;
+
+public class DynamicUpdate {
+public static void main(String[] args) {
+Connection conn=null;
+PreparedStatement pstmt=null;
+try
+{
+	Driver driver=new Driver();
+	DriverManager.registerDriver(driver);
+}catch(SQLException e) {
+	e.printStackTrace();
+}
+}
+}

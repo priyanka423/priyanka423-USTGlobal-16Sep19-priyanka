@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Object_method/src/com/ustglobal/hashcode/HashCode.java&apos; to &apos;Pen.java&apos;" description="Rename resource &apos;HashCode.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/com/ustglobal/hashcode/HashCode.java" name="Pen.java" stamp="1572427237680" updateReferences="true"/>
+</session>

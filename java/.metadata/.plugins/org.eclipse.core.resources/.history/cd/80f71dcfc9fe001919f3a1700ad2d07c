@@ -1,0 +1,11 @@
+package com.ustglobal.sorting.list;
+
+public class TestA {
+public static void main(String[] args) {
+	ArrayList<Student> al=new ArrayList<Student>();
+	Student s1=new Student(12,"dimple",35.6);
+	Student s2=new Student(2,"sweety",30.8);
+	Student s3=new Student(34,"jimmy",68.9);
+	Student s4=new Student(5,"tummy",76.5);
+}
+}
