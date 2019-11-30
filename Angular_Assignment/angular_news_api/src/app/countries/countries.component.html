@@ -1,0 +1,32 @@
+<select name="search" id="search" class="w-50 mt-3 mx-auto d-block">
+                <option value="in">India</option>
+                <option value="us">United States</option>
+                <option value="du">Dubai</option>
+                <option value="ru">Russia</option>
+</select>
+ <div class="row mt-2">
+    <div class="card card-body col-md-3"> 
+        <div class="card card-body" *ngFor="let news of countriesNews">
+                <img src="{{news.urlToImage}}" alt="" style="height: 350px;">
+                <p>{{news.title}}</p> 
+        </div> 
+    </div>
+    <div class="card card-body col-md-3"> 
+            <div class="card card-body" *ngFor="let news1 of countriesNews">
+                    <img src="{{news1.urlToImage}}" alt="" style="height: 350px;">
+                    <p>{{news1.title}}</p> 
+            </div> 
+        </div>
+    <div class="card card-body col-md-3"> 
+            <div class="card card-body" *ngFor="let news2 of bbcNews">
+                    <img src="{{news2.urlToImage}}" alt="" style="height: 350px;">
+                    <p>{{news2.title}}</p> 
+            </div> 
+        </div>
+        <div class="card card-body col-md-3"> 
+                <div class="card card-body" *ngFor="let news3 of bbcNews">
+                        <img src="{{news3.urlToImage}}" alt="" style="height: 350px;">
+                        <p>{{news3.title}}</p> 
+                </div> 
+        </div>
+ </div>

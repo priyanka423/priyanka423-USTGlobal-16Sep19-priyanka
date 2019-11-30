@@ -1,0 +1,26 @@
+<!-- India News -->
+<div class="row ml-4 mr-2">
+  <div class="card card-body mt-2 col-md-4" style="text-align:center;">
+    <h5 style="text-align: center;">Top News From India.</h5>
+    <div class="card card-body" *ngFor="let new of news">
+      <img src="{{ new.urlToImage }}" alt="" style="height: 350px;" />
+      <p style="font-size: 20px;">{{ new.title }}</p>
+    </div>
+  </div>
+  <!-- Entertainment News -->
+  <div class="card card-body mt-2 ml-4 col-md-4" style="text-align:center;">
+    <h5 style="text-align: center;">Entertainment News.</h5>
+    <div class="card card-body" *ngFor="let news of entertainmentNews">
+      <img src="{{ news.urlToImage }}" alt="" style="height: 350px;" />
+      <p style="font-size: 20px;">{{ news.title }}</p>
+    </div>
+  </div>
+  <!-- Sports News -->
+  <div class="card card-body mt-2 ml-4 col-md-3" style="text-align:center;">
+    <h5 style="text-align: center;">Sports News.</h5>
+    <div class="card card-body" *ngFor="let news of sportsNews">
+      <img src="{{ news.urlToImage }}" alt="" style="height: 350px;" />
+      <p style="font-size: 20px;">{{ news.title }}</p>
+    </div>
+  </div>
+</div>

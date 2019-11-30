@@ -1,0 +1,97 @@
+<div class="col-md-4 offset-4 mt-5 mb-5 card card-body">
+  <form action="" [formGroup]="form" (ngSubmit)="requestData(form)">
+    <h1 class="text-center text-white bg-warning">Add Request Form</h1>
+    <div class="form-group">
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="form-control"
+        placeholder="Enter Product Name.."
+        formControlName="name"
+      />
+      <div *ngIf="name.touched && name.invalid">
+        <p *ngIf="name.errors.required" class="text-danger">
+          *this field is required
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <select
+        name="skills"
+        id="skills"
+        class="form-control"
+        placeholder="Enter Year of Exp."
+        formControlName="skills"
+        required
+      >
+        <div *ngIf="skills.touched && skills.invalid">
+          <p *ngIf="skills.errors.required" class="text-danger">
+            *this field is required
+          </p>
+        </div>
+        <option value="java">JAVA</option>
+        <option value="sql">SQL</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        name="exp"
+        id="exp"
+        class="form-control"
+        placeholder="Enter Year of Exp."
+        formControlName="exp"
+      />
+      <div *ngIf="exp.touched && exp.invalid">
+        <p *ngIf="exp.errors.required" class="text-danger">
+          *this field is required
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        name="address"
+        class="form-control "
+        id="address"
+        placeholder="Enter Location"
+        formControlName="address"
+      />
+      <div *ngIf="address.touched && address.invalid">
+        <p *ngIf="address.errors.required" class="text-danger">
+          *this field is required
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        name="mctc"
+        id="mctc"
+        class="form-control"
+        placeholder="Enter MCTC.."
+        formControlName="mctc"
+      />
+      <div *ngIf="mctc.touched && mctc.invalid">
+        <p *ngIf="mctc.errors.required" class="text-danger">
+          *this field is required
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-outline-primary float-right "
+        [disabled]="form.invalid"
+      >
+        Add Request
+      </button>
+    </div>
+  </form>
+</div>

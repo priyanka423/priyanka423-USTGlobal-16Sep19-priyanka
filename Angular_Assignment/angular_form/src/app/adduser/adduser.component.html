@@ -1,0 +1,135 @@
+<div class="col-md-4 offset-4 mt-5 mb-5 card card-body">
+  <form action="" [formGroup]="form" (ngSubmit)="requestData(form)">
+    <h1 class="text-center text-white bg-warning">Add User Form</h1>
+
+    <div class="form-group">
+      <input
+        type="text"
+        name="fname"
+        id="fname"
+        class="form-control"
+        placeholder="Enter User First Name.."
+        formControlName="fname"
+      />
+      <div *ngIf="fname.touched && fname.invalid">
+        <p *ngIf="fname.errors.required" class="text-danger">
+          *this field is required
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        name="mname"
+        id="mname"
+        class="form-control"
+        placeholder="Enter User Middle Name.."
+        formControlName="mname"
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        type="text"
+        name="lname"
+        id="lname"
+        class="form-control"
+        placeholder="Enter User Last  Name.."
+        formControlName="lname"
+      />
+      <div *ngIf="lname.touched && lname.invalid">
+        <p *ngIf="lname.errors.required" class="text-danger">
+          *this field is required
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        placeholder="Enter User email.."
+        formControlName="email"
+      />
+      <div *ngIf="email.touched && email.invalid">
+        <p *ngIf="email.errors.required" class="text-danger">
+          *this field is required
+        </p>
+        <p *ngIf="email.errors.unique" class="text-danger">
+          *email already exists
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="form-control"
+        placeholder="Enter password.."
+        formControlName="password"
+      />
+      <div *ngIf="password.touched && password.invalid">
+        <p *ngIf="password.errors.required" class="text-danger">
+          *this field is required
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Gender</label><br />
+      <input
+        type="radio"
+        name="skills"
+        value="java"
+        formControlName="gender"
+      />Male
+      <input
+        type="radio"
+        name="skills"
+        value="angular"
+        formControlName="gender"
+      />Female
+      <input
+        type="radio"
+        name="skills"
+        value="sql"
+        formControlName="gender"
+      />Others
+      <div *ngIf="gender.touched && gender.invalid">
+        <p *ngIf="gender.errors.required" class="text-danger">
+          *this field is required
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <textarea
+        name="address"
+        class="form-control "
+        id="address"
+        placeholder="Enter Address"
+        formControlName="address"
+      ></textarea>
+      <div *ngIf="address.touched && address.invalid">
+        <p *ngIf="address.errors.required" class="text-danger">
+          *this field is required
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-outline-primary float-right "
+        [disabled]="form.invalid"
+      >
+        Schedule Intervie
+      </button>
+    </div>
+  </form>
+</div>
