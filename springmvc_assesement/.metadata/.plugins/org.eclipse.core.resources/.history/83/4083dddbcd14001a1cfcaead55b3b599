@@ -1,0 +1,5 @@
+package com.ustglobal.spring_mvc.dao;
+
+public class ProductDaoImpl {
+
+}

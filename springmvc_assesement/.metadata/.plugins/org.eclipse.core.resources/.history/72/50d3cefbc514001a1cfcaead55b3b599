@@ -1,0 +1,5 @@
+package com.ustglobal.spring_mvc.beans;
+
+public class Retailer {
+
+}

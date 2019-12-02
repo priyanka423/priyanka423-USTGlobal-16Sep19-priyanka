@@ -1,0 +1,16 @@
+package com.ustglobal.spring_mvc.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.ustglobal.spring_mvc.service.ProductService;
+
+@Controller
+public class OrderController {
+	
+	@Autowired
+	public ProductService service;
+	
+	
+
+}

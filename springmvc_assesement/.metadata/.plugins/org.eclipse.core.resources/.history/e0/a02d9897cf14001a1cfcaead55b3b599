@@ -1,0 +1,52 @@
+package com.ustglobal.spring_mvc.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.ustglobal.spring_mvc.beans.Retailer;
+
+@Repository
+public class ProductDaoImpl implements ProductDao {
+
+	@Override
+	public Retailer login(int id, String Password) {
+		String jpql = "from Retailer where id=:id and password=:password";
+		return null;
+	}
+
+	@Override
+	public int create(Retailer bean) {
+		
+		return 0;
+	}
+
+	@Override
+	public Retailer searchByProductId(int id) {
+		
+		return null;
+	}
+
+	@Override
+	public boolean updatePassword(int id, String password) {
+		
+		return false;
+	}
+
+	@Override
+	public int totalAmount(int price) {
+		
+		return 0;
+	}
+
+	@Override
+	public boolean deleteProfile(int id) {
+		
+		return false;
+	}
+
+	@Override
+	public Retailer searchById(int id) {
+		
+		return null;
+	}
+
+}
