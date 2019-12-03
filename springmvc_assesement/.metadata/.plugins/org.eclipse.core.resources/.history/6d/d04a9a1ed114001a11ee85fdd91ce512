@@ -1,0 +1,57 @@
+package com.ustglobal.retailer.service;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
+
+import org.springframework.stereotype.Repository;
+
+import com.ustglobal.retailer.dto.OrderBean;
+import com.ustglobal.retailer.dto.RetailerBean;
+
+@Repository
+public class RetailerServiceImpl implements RetailerService {
+
+	@PersistenceUnit
+	EntityManagerFactory factory;
+	
+	
+	@Override
+	public boolean createProfile(RetailerBean Bean) {
+		
+		return; 
+	}
+
+	@Override
+	public RetailerBean login(int rid, String password) {
+		
+		return null;
+	}
+
+	@Override
+	public OrderBean searchProduct(int pid) {
+		
+		return null;
+	}
+
+	@Override
+	public boolean updatePassword(int rid, String password) {
+		
+		return false;
+	}
+
+	@Override
+	public boolean updateAmount(OrderBean bean) {
+		
+		return false;
+	}
+
+	@Override
+	public Object retrieveOrder(int oid) {
+		
+		return null;
+	}
+
+	
+	
+	
+}

@@ -1,0 +1,5 @@
+package com.ustglobal.retailer.dto;
+
+public class ProductBean {
+
+}

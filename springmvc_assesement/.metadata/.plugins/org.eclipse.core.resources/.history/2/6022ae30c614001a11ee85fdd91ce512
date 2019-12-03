@@ -1,0 +1,5 @@
+package com.ustglobal.retailer.dao;
+
+public class Retailer {
+
+}

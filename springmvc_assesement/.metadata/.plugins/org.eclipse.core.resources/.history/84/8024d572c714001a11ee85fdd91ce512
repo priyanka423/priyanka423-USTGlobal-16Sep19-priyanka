@@ -1,0 +1,24 @@
+package com.ustglobal.retailer.dto;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="order")
+public class OrderBean {
+
+	@Id
+	@Column
+	private int oid;
+	@Column
+	private String pname;
+	@Column
+	private int punit;
+	@Column
+	private int quantity;
+	@Column
+	private int amountpay;
+	
+}

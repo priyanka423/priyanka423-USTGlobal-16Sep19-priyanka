@@ -1,0 +1,55 @@
+package com.ustglobal.retailer.dto;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="order")
+public class OrderBean {
+
+	@Id
+	@Column
+	private int oid;
+	@Column
+	private int price;
+	@Column
+	private int quantity;
+	@Column
+	private int amountpay;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="rid", nullable = false)
+	private RetailerBean retailerBean;
+	public int getOid() {
+		return oid;
+	}
+	public void setOid(int oid) {
+		this.oid = oid;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public int getAmountpay() {
+		return amountpay;
+	}
+	public void setAmountpay(int amountpay) {
+		this.amountpay = amountpay;
+	}
+	}

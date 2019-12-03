@@ -1,0 +1,33 @@
+package com.ustglobal.retailer.dto;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="product")
+public class ProductBean {
+
+	@Id
+	@Column
+	@ManyToMany(cascade=CascadeType.ALL,mappedBy="productname")
+	private int pid;
+	@Column
+	private String pname;
+	public int getPid() {
+		return pid;
+	}
+	public void setPid(int pid) {
+		this.pid = pid;
+	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	
+}

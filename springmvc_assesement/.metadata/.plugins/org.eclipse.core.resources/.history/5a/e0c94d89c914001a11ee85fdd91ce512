@@ -1,0 +1,17 @@
+package com.ustglobal.retailer.dto;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+@Table(name="product")
+public class ProductBean {
+
+	@Id
+	@Column
+	private int pid;
+	@Column
+	private String pname;
+	
+}

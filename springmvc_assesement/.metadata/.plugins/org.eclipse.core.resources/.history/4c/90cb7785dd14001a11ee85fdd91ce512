@@ -1,0 +1,55 @@
+package com.ustglobal.retailer.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.ustglobal.retailer.dao.RetailerDAO;
+import com.ustglobal.retailer.dto.OrderBean;
+import com.ustglobal.retailer.dto.RetailerBean;
+
+@Repository
+public class RetailerServiceImpl implements RetailerService {
+	
+	@Autowired
+	private RetailerDAO dao;
+
+	@Override
+	public int createProfile(RetailerBean Bean) {
+		return dao.createProfile(Bean);
+	}
+
+	@Override
+	public RetailerBean login(int rid, String password) {
+		return dao.login(rid, password);
+	}
+
+	@Override
+	public OrderBean searchProduct(int pid) {
+		return dao.searchProduct(pid);
+	}
+
+	@Override
+	public boolean updatePassword(int rid, String password) {
+		
+		return dao.updatePassword(rid, password);
+	}
+
+	@Override
+	public double sumAmount(int rid) {
+	
+		return dao.sumAmount(rid);
+	}
+
+	@Override
+	public Object retrieveOrder(int oid) {
+		
+		return null;
+	}
+
+	
+	
+
+
+
+
+}

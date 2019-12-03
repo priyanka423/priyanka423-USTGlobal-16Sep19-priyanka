@@ -1,0 +1,10 @@
+1575263797259	Delete element
+1575265251897	Rename type 'Retailer'
+1575265363696	Rename package 'com.ustglobal.retailer.dao'
+1575268371345	Delete element
+1575274120271	Move 'index.jsp' to 'view'
+1575274128192	Move 'web.xml' to 'view'
+1575274152659	Move 'web.xml' to 'WEB-INF'
+1575274169580	Delete element
+1575274225234	Move 'index.jsp' to 'webapp'
+1575274373920	Rename resource 'register.jsp'

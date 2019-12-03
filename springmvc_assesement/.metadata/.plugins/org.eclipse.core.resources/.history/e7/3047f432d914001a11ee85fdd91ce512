@@ -1,0 +1,75 @@
+package com.ustglobal.retailer.dto;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="order")
+public class OrderBean {
+
+	@Id
+	@Column
+	@ManyToOne(cascade = CascadeType.ALL)
+	private int oid;
+	@Column
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="pname",nullable = false)
+	private List<ProductBean> productname;
+	@Column
+	private int price;
+	@Column
+	private int quantity;
+	@Column
+	private int amountpay;
+	@Column
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="rid",nullable = false)
+	private List<RetailerBean> retailer;
+	public int getOid() {
+		return oid;
+	}
+	public void setOid(int oid) {
+		this.oid = oid;
+	}
+	public List<ProductBean> getPname() {
+		return pname;
+	}
+	public void setPname(List<ProductBean> pname) {
+		this.pname = pname;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public int getAmountpay() {
+		return amountpay;
+	}
+	public void setAmountpay(int amountpay) {
+		this.amountpay = amountpay;
+	}
+	public List<RetailerBean> getRetailer() {
+		return retailer;
+	}
+	public void setRetailer(List<RetailerBean> retailer) {
+		this.retailer = retailer;
+	}
+	
+
+}

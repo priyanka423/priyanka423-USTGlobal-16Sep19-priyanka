@@ -1,0 +1,9 @@
+package com.ustglobal.retailer.dao;
+
+public class Retailer {
+
+	private int id;
+	private String name;
+	private String email;
+	private String password;
+}

@@ -1,0 +1,5 @@
+package com.ustglobal.retailer.service;
+
+public interface RetailerService {
+
+}
