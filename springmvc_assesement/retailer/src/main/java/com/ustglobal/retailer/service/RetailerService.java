@@ -13,6 +13,4 @@ public interface RetailerService {
 	public double sumAmount(int rid);
 	public OrderBean retrieveOrder(int rid);
 
-
-
 }

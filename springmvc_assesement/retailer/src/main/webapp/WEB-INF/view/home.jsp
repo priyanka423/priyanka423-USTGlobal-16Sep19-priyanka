@@ -10,14 +10,12 @@
 </head>
 <body>
 	<a href="./changepassword">Change Password</a>
-	<a href="./update">Update Profile</a>
-	<a href="./delete">delete Profile</a>
 	<a href="./logout" style="color: red;">Logout</a>
 	<%
 	RetailerBean bean = (RetailerBean) session.getAttribute("bean");
 %>
 	<h2>
-		Welcome<%=bean.getName()%></h2>
+		Welcome <%=bean.getName()%></h2>
 
 	<fieldset>
 		<legend>Search Employee</legend>

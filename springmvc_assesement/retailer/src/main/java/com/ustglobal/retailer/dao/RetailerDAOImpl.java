@@ -92,10 +92,10 @@ public class RetailerDAOImpl implements RetailerDAO{
 		List<OrderBean> l=(List<OrderBean>) entityManager.find(OrderBean.class, rid);
 		OrderBean bean=new OrderBean();
 		for(OrderBean orderBean:l) {
-			bean.setPrice(orderBean.getOid());
 			bean.setPrice(orderBean.getPrice());
 			bean.setQuantity(orderBean.getQuantity());
 			bean.setAmountpay(orderBean.getAmountpay());
+			bean.setOid(orderBean.getOid());
 		
 		}
 		return bean;

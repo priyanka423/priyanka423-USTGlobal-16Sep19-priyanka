@@ -19,8 +19,8 @@
 			<item value="2"/>
 		</list>
 		<list key="textArray">
-			<item value="ser"/>
 			<item value="server"/>
+			<item value="ser"/>
 		</list>
 	</section>
 </section>

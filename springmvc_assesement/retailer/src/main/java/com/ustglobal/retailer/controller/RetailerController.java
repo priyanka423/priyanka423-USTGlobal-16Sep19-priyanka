@@ -28,6 +28,29 @@ public class RetailerController {
 
 	@Autowired
 	private RetailerService service;
+	
+	@GetMapping("/createprofile")
+	public String createProfilePage() {
+		return "createprofile";
+	}//end of createprofilePage()
+	
+	
+	@PostMapping("/createprofile")
+	public String createProfilePage(RetailerBean bean,ModelMap map) {
+		int check = service.createProfile(bean);
+		if(check>0) {
+			map.addAttribute("msg","You are Registered and Id is "+check);
+		}else {
+			map.addAttribute("msg","Email is Required");
+		}
+		return "login";
+	}//end of createprofile()
+	
+	
+	
+	
+	
+	
 
 	@GetMapping("/login")
 	public String loginPgae() {
@@ -49,20 +72,7 @@ public class RetailerController {
 		}
 	}// end of login()
 
-	@GetMapping("/createprofile")
-	public String createProfilePage() {
-		return "createprofile";
-	}//end of createprofilePage()
-	@PostMapping("/createprofile")
-	public String register(RetailerBean bean,ModelMap map) {
-		int check = service.createProfile(bean);
-		if(check>0) {
-			map.addAttribute("msg","You are Registered and Id is "+check);
-		}else {
-			map.addAttribute("msg","Email is Required");
-		}
-		return "login";
-	}//end of createprofile()
+	
 	
 	@GetMapping("/home")
 	public String home(ModelMap map, @SessionAttribute(name="bean", required = false)RetailerBean bean) {
@@ -84,17 +94,19 @@ public class RetailerController {
 		session.invalidate();
 		return "login";
 	}
-	@GetMapping("/updatepassword")
+	
+	
+	@GetMapping("/changepassword")
 	public String changePassword(HttpServletRequest request) {
 		HttpSession session = request.getSession(false);
 		if(session!=null) {
-			return "updatepassword";
+			return "changepassword";
 		}
 		else {
 			return "login";
 		}
 	}//end of changePassword()
-	@PostMapping("/updatepassword")
+	@PostMapping("/changepassword")
 	public String changePassword(String password, String confirmpassword,@SessionAttribute(name="bean")RetailerBean bean,ModelMap map) {
 
 		if(password.equals(confirmpassword)) {
@@ -113,6 +125,29 @@ public class RetailerController {
 	public String search(@RequestParam("pid") int id,
 			ModelMap map) {
 		ProductBean bean=service.searchProduct(id);
+		if(bean==null) {
+			map.addAttribute("msg","Data Not Found");
+		}else {
+			map.addAttribute("bean",bean);
+		}
+		return "home";
+
+	}// end of search()
+	
+	
+	//............................//
+	
+
+	@GetMapping("/readorder")
+	public String readOrder() {
+		return "readorder";
+	}//end of createprofilePage()
+	
+	
+	@PostMapping("/readorder")
+	public String readOrder(@RequestParam("rid") int id,
+			ModelMap map) {
+		OrderBean bean=service.retrieveOrder(id);
 		if(bean==null) {
 			map.addAttribute("msg","Data Not Found");
 		}else {

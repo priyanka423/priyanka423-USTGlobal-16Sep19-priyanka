@@ -22,9 +22,7 @@
 <fullyQualifiedTypeName name="org.springframework.beans.propertyeditors.CustomDateEditor"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-<fullyQualifiedTypeName name="com.ustglobal.retailer.dto.RetailerBean"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="org.springframework.ui.ModelMap"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
@@ -37,9 +35,11 @@
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.SessionAttribute"/>
-<fullyQualifiedTypeName name="com.ustglobal.retailer.dto.OrderBean"/>
 <fullyQualifiedTypeName name="com.ustglobal.retailer.dao.RetailerDAO"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
 <fullyQualifiedTypeName name="com.ustglobal.retailer.dto.ProductBean"/>
+<fullyQualifiedTypeName name="com.ustglobal.retailer.dto.RetailerBean"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+<fullyQualifiedTypeName name="com.ustglobal.retailer.dto.OrderBean"/>
 </qualifiedTypeNameHistroy>

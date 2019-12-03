@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="./readorder">Read Order</a>
+<h3>${msg}</h3>
 	<fieldset>
 		<legend>Login</legend>
 		<form action="./login" method="post">
@@ -34,5 +36,6 @@
 	</fieldset>
 
 	<a href="./createprofile">Click here to Register</a>
+	
 </body>
 </html>
