@@ -1,0 +1,87 @@
+package com.ustglobal.springmvc.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.HttpRequest;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.ustglobal.springmvc.beans.Employee;
+
+@Controller
+public class HelloController {
+
+	//............... giving the request..................//
+	/*
+	 * @RequestMapping(path="/hello") public String hello(ModelMap map) {
+	 * map.addAttribute("msg","Hello World"); return "index"; }
+	 */
+
+	//..............  passing the parameter ...................//
+
+	@RequestMapping(path="/hello")
+	public String hello(@RequestParam("name")String name,
+			@RequestParam("id") int id,
+			ModelMap map) {
+		map.addAttribute("msg","Hello World");
+		map.addAttribute("name",name);
+		map.addAttribute("id",id);
+		return "index";
+	}
+
+	// ............. passing the variable ....................//
+
+	@RequestMapping(path="/hi/{name}/{id}") 	// passing the variable
+	public String hi(@PathVariable("name")String name,
+			@PathVariable("id") int id,
+			HttpServletRequest request) {
+		request.setAttribute("msg","Hello World");
+		request.setAttribute("name",name);
+		request.setAttribute("id",id);
+		return "index";
+	}
+
+	//................ for form.jsp ...............//
+	
+	@RequestMapping(path="/form") // go to the only the  form page
+	public String formPage() {
+		return "form";
+	}
+	
+	
+	@RequestMapping(path="/form", method=RequestMethod.POST) // here it will accepting the form request 
+	public String form(int id,String name, // here it will give the same variable  name which are declared in the form.jsp
+			String password, String gender,
+			ModelMap map) {
+		map.addAttribute("id",id);
+		map.addAttribute("name",name);
+		map.addAttribute("password",password);
+		map.addAttribute("gender",gender);
+		return "formoutput";
+		
+	}
+	
+	@RequestMapping(path="/form", method=RequestMethod.POST) // here it will accepting the form request 
+	public String form(Employee employee, // here it will give the same variable  name which are declared in the form.jsp
+			ModelMap map) {
+		map.addAttribute("id",employee.id());
+		map.addAttribute("name",employeen.name());
+		map.addAttribute("password",employee.password());
+		map.addAttribute("gender",employee.gender());
+		return "formoutput";
+		
+	}
+
+	//.........................................................................//
+	
+	
+	//......................... giving the request ...............//
+	/*
+	 * @RequestMapping(path="/hi") public String hi(HttpServletRequest request) {
+	 * request.setAttribute("msg","Hello World"); return "index"; }
+	 */
+}

@@ -1,0 +1,5 @@
+package com.ustglobal.springrest.dao;
+
+public class EmployeeResponse {
+
+}

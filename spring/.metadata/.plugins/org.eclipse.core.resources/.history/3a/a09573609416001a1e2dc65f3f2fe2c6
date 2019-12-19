@@ -1,0 +1,25 @@
+package com.ustglobal.springboot.repo;
+
+import java.util.Date;
+
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+
+import com.itextpdf.text.pdf.PdfStructTreeController.returnType;
+import com.ustglobal.springboot.dto.EmployeeBean;
+
+
+public interface EmployeeRepo extends JpaRepository<EmployeeBean, Integer>{
+	
+//	public EmployeeBean findByName(String name); // here it can not give findByEmpName(String name) bcuse it is taking EmployeeBean setter method//
+	
+	@Transactional
+	@Modifying
+	@Query("update EmployeeBean set name=:name,password=:password,gender=:gender,doj=:doj where id=:id")
+
+	public void update(String name, String password,String gender,Date doj);
+
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- <bean id="hello" class="com.ustglobal.springcore.di.Hello" scope="prototype"> -->
+
+	<bean id="hello" class="com.ustglobal.springcore.di.Hello"
+		init-method="init" destroy-method="destroy">
+		<property name="msg" value="I Love Java" />
+		
+		<!--............. for map............. -->
+		<property name="map">
+			<map>
+				<entry key="one" value="1" />
+				<entry key="two" value="2" />
+
+			</map>
+
+		</property>
+
+		<!-- .............................................. -->
+		
+		
+
+	</bean>
+	<bean id="dog" class="com.ustglobal.springcore.di.Dog" /> <!-- creating the object of dog by using the bean -->
+	<bean id="human" class="com.ustglobal.springcore.di.Human"
+		primary="true" />
+
+	<bean id="animal" class="com.ustglobal.springcore.di.Cat" />
+
+	<bean id="pet" class="com.ustglobal.springcore.di.Pet"
+		autowire="byName">
+
+		<property name="name" value="pri" />
+
+
+		<!-- <property name="animal" ref="dog"/> --><!-- Setter injection -->
+
+		<!-- Constructor injection or wiring injection -->
+
+		<!-- <constructor-arg name="name" value="pri"/> -->
+		<!-- <constructor-arg name="animal" ref="dog"/> -->
+		<!-- <constructor-arg name="animal" ref="dog"/> -->
+	</bean>
+
+	<bean id="beanPostProcessor"
+		class="com.ustglobal.springcore.di.BeanPostProcessorClass" />
+	<bean id="beanFactoryPostProcessor"
+		class="com.ustglobal.springcore.di.BeanFactoryPostProcessorClass" />
+</beans> 
+
+
+
+

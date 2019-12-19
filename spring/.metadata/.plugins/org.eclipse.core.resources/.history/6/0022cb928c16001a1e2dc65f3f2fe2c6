@@ -1,0 +1,5 @@
+package com.ustglobal.springboot.service;
+
+public class EmployeeServiceJpaImpl {
+
+}

@@ -1,0 +1,39 @@
+package com.ustglobal.bootWithdatajpa1.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ustglobal.bootWithdatajpa1.dto.Product;
+import com.ustglobal.bootWithdatajpa1.repo.ProductReposistory;
+
+@Service
+public class ProductServiceImpl implements ProductService{
+
+	@Autowired
+	private ProductReposistory repository;
+	@Override
+	public boolean addProduct(Product product) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean updateProduct(Product product) {
+		repository.update(product.getId(),product.getName(),product.getCategory(),product.getQuantity(),product.getPrice());
+		return true;
+		
+	}
+
+	
+	public boolean deleteProductByid(int id) {
+		repository.deleteById(id);
+		return true;
+	}
+
+	@Override
+	public boolean deleteProductByName(String name) {
+		repository.deleteByName(name);
+		return true;
+	}
+
+}

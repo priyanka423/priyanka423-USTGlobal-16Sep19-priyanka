@@ -1,0 +1,5 @@
+package com.ustglobal.bootWithdatajpa1.dto;
+
+public class Product {
+
+}

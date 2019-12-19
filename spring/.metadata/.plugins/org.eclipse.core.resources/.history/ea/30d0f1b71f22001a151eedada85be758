@@ -1,0 +1,20 @@
+package com.ustglobal.bootWithdatajpa1.repo;
+
+
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.ustglobal.bootWithdatajpa1.dto.Product;
+
+@Transactional
+public interface ProductReposistory extends JpaRepository<Product,Integer>{
+
+	@Modifying
+	@Query("update Product set name=:name,category=:c,price=:price,quantity=:q where id=:id)")
+	void update(@Param("id") int id, @Param("name") String name,@Param("c") String category,@Param("q") int quantity,@Param("p") double price);
+	
+}
