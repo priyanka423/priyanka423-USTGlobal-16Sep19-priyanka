@@ -1,0 +1,124 @@
+package com.ustglobal.library.controller;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ustglobal.library.dto.BookInventoryBean;
+import com.ustglobal.library.dto.LibrarianResponse;
+import com.ustglobal.library.dto.UserBean;
+import com.ustglobal.library.dto.UserResponse;
+import com.ustglobal.library.service.LibrarianService;
+
+@RestController
+@CrossOrigin(origins = "*",allowCredentials = "true")
+public class LibrarianController {
+	
+
+	@Autowired
+	private LibrarianService librarianService;
+	
+	@PostMapping(path="/book/add",
+			consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public LibrarianResponse addBookInventory(@RequestBody BookInventoryBean bookInventory) {
+		LibrarianResponse response=new LibrarianResponse();
+		if(librarianService.addBookInventory(bookInventory)) {
+			response.setStatusCode(201);
+			response.setMessage("success");
+			response.setDescription("Data added to the DB");
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("failure");
+			response.setDescription("Data not added to the DB");
+
+		}
+		return response;
+	}
+	
+	@PutMapping(path="/book/update",
+			consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public LibrarianResponse updateBookInventory(@RequestBody BookInventoryBean bookInventory) {
+		LibrarianResponse response=new LibrarianResponse();
+		if(librarianService.updateBookInventory(bookInventory)) {
+			response.setStatusCode(201);
+			response.setMessage("success");
+			response.setDescription("Data modified to the DB");
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("failure");
+			response.setDescription("Data modified not added to the DB");
+
+		}
+		return response;
+}
+	
+	@DeleteMapping(path="/book/delete/{book_inventory_id}",
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public LibrarianResponse deleteBookInventory(@PathVariable("book_inventory_id") int book_inventory_id) { 
+		LibrarianResponse response=new LibrarianResponse();
+		if(librarianService.deleteBookInventory(book_inventory_id)) {
+			response.setStatusCode(201);
+			response.setMessage("success");
+			response.setDescription("Data deleted to the DB");
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("failure");
+			response.setDescription("Data deleted not to the DB");
+
+		}
+		return response;
+	
+	
+}
+	
+	@GetMapping(path="/book/getList",
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public LibrarianResponse getAll(){
+		LibrarianResponse response=new LibrarianResponse();
+		List<BookInventoryBean> beans=librarianService.getAll();
+		if(!beans.isEmpty()) {
+			response.setStatusCode(201);
+			
+			response.setMessage("success");
+			response.setDescription("Data found in  the DB");
+			response.setBookInventoryBeans(beans); // here it is taking beans object because already we have stored the data into the List so it will not take the List here//
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("failure");
+			response.setDescription("Data not found in the DB");
+
+		}
+		return response;
+}
+	
+	@GetMapping(path="/get",
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse getUserData(@RequestParam("book_inventory_id") int book_inventory_id) {
+		UserResponse response=new UserResponse();
+		LibrarianService bean=librarianServices.getBookData(book_inventory_id);
+		if(bean!=null) {
+			response.setStatusCode(201);
+			response.setMessage("success");
+			response.setDescription("Data found in  the DB");
+			response.setUserBeans(Arrays.asList(bean)); // here it is creating one array and pass into the object for fetching the one row of data//
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("failure");
+			response.setDescription("Data not found in the DB");
+
+		}
+		return response;
+}

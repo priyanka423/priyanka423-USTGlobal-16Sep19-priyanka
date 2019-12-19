@@ -1,0 +1,64 @@
+package com.ustglobal.library.dto;
+
+import java.util.List;
+
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
+
+import lombok.Data;
+import lombok.ToString.Exclude;
+
+@Data
+@Entity
+@Table(name="user")
+public class UserBean {
+
+	@Id
+	@Column
+	@GeneratedValue
+	private int user_id;
+	@Column
+	private String name;
+	@Column(unique=true)
+	private String email;
+	@Column
+	private String phone;
+	@Column
+	private String password;
+	@Column
+	private String is_librarian;
+	
+//	@Exclude
+//	@OneToMany(mappedBy = "userBean")
+//	private List<BookIssuedBean> bookIssuedBean;
+	
+	//new
+//	@Exclude
+//	@OneToMany(mappedBy = "userBean",cascade = CascadeType.ALL)
+//	private List<BookIssuedBean> bookIssuedBeanss;
+//	
+//	@Exclude
+//	@OneToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name="book_inventory_id")
+//	private BookInventoryBean bookInventoryBeans;
+//	
+	
+//	@Exclude
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name="book_inventory_id")
+//	private BookInventoryBean bookInventoryBean;
+	
+	
+	
+	
+	
+	
+	
+}

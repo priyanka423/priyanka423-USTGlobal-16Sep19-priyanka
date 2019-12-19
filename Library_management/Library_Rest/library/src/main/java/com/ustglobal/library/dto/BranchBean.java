@@ -1,0 +1,32 @@
+package com.ustglobal.library.dto;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.Data;
+import lombok.ToString.Exclude;
+
+@Data
+@Entity
+@Table(name="branch")
+public class BranchBean {
+	
+	@Id
+	@Column
+	@GeneratedValue
+	private int branch_id;
+	@Column
+	private String branch_name;
+	
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	private BookInventoryBean bookInventoryBeans;
+
+}

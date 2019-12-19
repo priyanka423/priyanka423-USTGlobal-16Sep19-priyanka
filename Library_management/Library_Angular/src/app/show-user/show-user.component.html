@@ -1,0 +1,32 @@
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- The form -->
+    <div class="body-background">
+    <div class="abc" *ngIf="error">{{ error }}</div>
+    <form class="example" #searchForm="ngForm"  (ngSubmit)=search(searchForm)>
+      <input type="text" placeholder="Please Enter Id.." 
+      name="user_id" #user_id="ngModel"
+      ngModel>
+      <button type="submit" (click)="selectUser(datas.user_id)"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="col-md-8 offset-2">
+      <table class="table table-bordered table-dark table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>is_librarian</th>
+            <th>email</th>
+            <th>password</th>
+          </tr>
+        </thead>
+    <tbody>
+        <tr *ngFor = 'let datas of getTodo.userBeans'>
+           <td>{{datas.name}}</td>
+           <td>{{datas.is_librarian}}</td>
+           <td>{{datas.email }}</td>
+           <td>{{datas.password }}</td>
+           </tr>
+           </tbody>
+           </table>
+  </div>

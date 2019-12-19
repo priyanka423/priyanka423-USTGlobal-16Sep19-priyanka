@@ -1,0 +1,124 @@
+package com.ustglobal.library.controller;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ustglobal.library.dto.BookInventoryBean;
+import com.ustglobal.library.dto.BookIssuedBean;
+import com.ustglobal.library.dto.IssuedResponse;
+import com.ustglobal.library.dto.LibrarianResponse;
+import com.ustglobal.library.service.IssuedService;
+
+@RestController
+@CrossOrigin(origins = "*",allowCredentials = "true")
+public class IssuedController {
+
+	@Autowired
+	private IssuedService issuedService;
+
+	@PostMapping(path="/book/issued/add",
+			consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public IssuedResponse addBookIssued(@RequestBody BookIssuedBean bookIssued) {
+		IssuedResponse response=new IssuedResponse();
+		if(issuedService.addBookIssued(bookIssued)) {
+			response.setStatusCode(201);
+			response.setMessage("success");
+			response.setDescription("Data added to the DB");
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("failure");
+			response.setDescription("Data not added to the DB");
+
+		}
+		return response;
+	}
+	
+	@PutMapping(path="/book/issued/update",
+			consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public IssuedResponse updateBookIssued(@RequestBody BookIssuedBean bookIssued) {
+		IssuedResponse response=new IssuedResponse();
+		if(issuedService.updateBookIssued(bookIssued)) {
+			response.setStatusCode(201);
+			response.setMessage("success");
+			response.setDescription("Data modified to the DB");
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("failure");
+			response.setDescription("Data modified not added to the DB");
+
+		}
+		return response;
+}
+	
+	@DeleteMapping(path="/book/issued/delete/{book_issued_id}",
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public IssuedResponse deleteBookIssued(@PathVariable("book_issued_id") int book_issued_id) { 
+		IssuedResponse response=new IssuedResponse();
+		if(issuedService.deleteBookIssued(book_issued_id)) {
+			response.setStatusCode(201);
+			response.setMessage("success");
+			response.setDescription("Data deleted to the DB");
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("failure");
+			response.setDescription("Data deleted not to the DB");
+
+		}
+		return response;
+	
+	
+}
+	
+	@GetMapping(path="/book/issued/getList",
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public IssuedResponse getAll(){
+		IssuedResponse response=new IssuedResponse();
+		List<BookIssuedBean> beans=issuedService.getAllIssued();
+		if(!beans.isEmpty()) {
+			response.setStatusCode(201);
+			
+			response.setMessage("success");
+			response.setDescription("Data found in  the DB");
+			response.setBookIssuedBeans(beans);
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("failure");
+			response.setDescription("Data not found in the DB");
+
+		}
+		return response;
+}
+	
+	@GetMapping(path="/book/issued/get",
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public IssuedResponse getBookIssuedData(@RequestParam("book_issued_id") int book_issued_id) {
+		IssuedResponse response=new IssuedResponse();
+		BookIssuedBean bean=issuedService.getBookIssuedData(book_issued_id);
+		if(bean!=null) {
+			response.setStatusCode(201);
+			response.setMessage("success");
+			response.setDescription("Data found in  the DB");
+			response.setBookIssuedBeans(Arrays.asList(bean)); // here it is creating one array and pass into the object for fetching the one row of data//
+		}else {
+			response.setStatusCode(401);
+			response.setMessage("failure");
+			response.setDescription("Data not found in the DB");
+
+		}
+		return response;
+}
+}

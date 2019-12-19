@@ -1,0 +1,5 @@
+package com.ustglobal.library.validation;
+
+public class RegexInfo {
+
+}

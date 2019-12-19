@@ -1,0 +1,40 @@
+<div class="body-background">
+    <div class="register-div text-center">
+  <div class="alert alert-danger" *ngIf='error'>{{error}}</div>
+  <div class="col-md-4 offset-md-4 display-inline">
+    <div class="inner-register-div col-lg-6 offset-3">
+    <div class="card-header background-color">
+      <div class="card-title ">
+        <h3>Request</h3>
+      </div>
+    </div>
+    <div class="card-body">
+      <form #registerForm='ngForm' (ngSubmit)='register(registerForm)'>
+  
+        <select class="form-control">
+            <option *ngFor = "let books of getBookList"  >{{books.book_name}}</option>
+        </select>
+  
+         <input type="text" name="is_librarian" id="is_librarian" #is_librarian='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter role number">
+  
+        <input type="text" name="name" id="name" #name='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter name">
+  
+  
+         <input type="password" name="password" id="password" #password='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter password">
+  
+         <input type="number" name="phone" id="phone" #phone='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter phone number">
+  
+        
+         <button class="btn btn-primary form-control" type="submit">Request</button>
+  
+      </form>
+    </div>
+    </div>
+    </div>
+  </div>
+  </div>
+  

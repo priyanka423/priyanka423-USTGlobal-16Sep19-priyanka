@@ -1,0 +1,73 @@
+package com.ustglobal.library.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceUnit;
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+
+import com.ustglobal.library.dto.BookInventoryBean;
+import com.ustglobal.library.dto.BranchBean;
+import com.ustglobal.library.dto.UserBean;
+
+@Repository
+public class LibrarianDAOImpl implements LibrarianDAO {
+
+	@PersistenceUnit
+	private EntityManagerFactory factory;
+	
+	@Override
+	public boolean addBookInventory(BookInventoryBean bookInventory) {
+		EntityManager entityManager=factory.createEntityManager();
+		EntityTransaction entityTransaction=entityManager.getTransaction();
+		try {
+			entityTransaction.begin();
+			entityManager.persist(bookInventory);
+			entityTransaction.commit();
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean updateBookInventory(BookInventoryBean bookInventory) {
+
+		EntityManager manager=factory.createEntityManager();
+		EntityTransaction transaction=manager.getTransaction();
+		transaction.begin();
+		BookInventoryBean bookInventoryBean=manager.find(BookInventoryBean.class,bookInventory.getBook_inventory_id());
+		bookInventoryBean.setAuthor(bookInventory.getAuthor());
+		bookInventoryBean.setBook_name(bookInventory.getBook_name());
+		bookInventoryBean.setCount(bookInventory.getCount());
+		bookInventoryBean.setPrice(bookInventory.getPrice());
+		transaction.commit();
+		return true;
+	}
+
+	@Override
+	public boolean deleteBookInventory(int book_inventory_id) {
+		EntityManager manager=factory.createEntityManager();
+		EntityTransaction transaction=manager.getTransaction();
+		transaction.begin();
+		BookInventoryBean bookInventoryBean=manager.find(BookInventoryBean.class,book_inventory_id);
+		manager.remove(bookInventoryBean);
+		transaction.commit();
+		return true;
+	}
+	
+	@Override
+	public List<BookInventoryBean> getAll() {
+		EntityManager entityManager=factory.createEntityManager();
+		String jpql="from EmployeeBean";
+		TypedQuery<BookInventoryBean> query=entityManager.createQuery(jpql,BookInventoryBean.class);
+		List<BookInventoryBean> employeeBeans=query.getResultList();
+		return employeeBeans;
+	}
+
+}

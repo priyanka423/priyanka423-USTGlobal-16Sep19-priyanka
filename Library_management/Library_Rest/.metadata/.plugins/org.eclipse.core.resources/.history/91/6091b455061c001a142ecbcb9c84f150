@@ -1,0 +1,5 @@
+package com.ustglobal.library.dto;
+
+public class EmployeeInfo {
+
+}

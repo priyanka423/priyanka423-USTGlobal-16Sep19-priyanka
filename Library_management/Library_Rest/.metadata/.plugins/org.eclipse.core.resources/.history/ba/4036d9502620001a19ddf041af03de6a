@@ -1,0 +1,15 @@
+package com.ustglobal.library.dao;
+
+import java.util.List;
+
+import com.ustglobal.library.dto.BookInventoryBean;
+import com.ustglobal.library.dto.UserBean;
+
+public interface LibrarianDAO {
+	public boolean addBookInventory(BookInventoryBean bookInventory);
+	public boolean updateBookInventory(BookInventoryBean bookInventory);
+	public boolean deleteBookInventory(int book_inventory_id);
+	public List<BookInventoryBean> getAll();
+	public BookInventoryBean getBookData(int book_inventory_id);
+
+}

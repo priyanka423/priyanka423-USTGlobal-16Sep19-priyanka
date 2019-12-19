@@ -1,0 +1,5 @@
+package com.ustglobal.library.exception;
+
+public class LibraryManagementException {
+
+}

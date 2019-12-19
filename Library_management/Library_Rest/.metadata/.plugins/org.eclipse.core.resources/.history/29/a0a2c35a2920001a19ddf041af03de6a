@@ -1,0 +1,47 @@
+package com.ustglobal.library.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ustglobal.library.dao.LibrarianDAO;
+import com.ustglobal.library.dto.BookInventoryBean;
+
+@Service
+public class LibrarianServiceImpl implements LibrarianService {
+
+	@Autowired
+	private LibrarianDAO dao;
+	
+	@Override
+	public boolean addBookInventory(BookInventoryBean bookInventory) {
+		
+		return dao.addBookInventory(bookInventory);
+	}
+
+	@Override
+	public boolean updateBookInventory(BookInventoryBean bookInventory) {
+		
+		return dao.updateBookInventory(bookInventory);
+	}
+
+	@Override
+	public boolean deleteBookInventory(int book_inventory_id) {
+		
+		return dao.deleteBookInventory(book_inventory_id);
+	}
+			
+	@Override
+	public List<BookInventoryBean> getAll() {
+		
+		return dao.getAll();
+	}
+
+	@Override
+	public BookInventoryBean getBookData(int book_inventory_id) {
+		
+		return dao.getBookData(book_inventory_id);
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.ustglobal.library.service;
+
+import java.util.List;
+
+import com.ustglobal.library.dto.BookIssuedBean;
+
+public interface IssuedService {
+	public boolean addBookIssued(BookIssuedBean bookIssued);
+	public boolean updateBookIssued(BookIssuedBean bookIssued);
+	public boolean deleteBookIssued(int book_issued_id);
+	public List<BookIssuedBean> getAllIssued();
+	public BookIssuedBean getBookIssuedData(int book_issued_id);
+}

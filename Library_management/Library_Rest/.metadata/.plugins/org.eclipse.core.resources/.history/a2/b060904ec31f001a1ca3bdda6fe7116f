@@ -1,0 +1,84 @@
+package com.ustglobal.library.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceUnit;
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+
+import com.ustglobal.library.dto.BookInventoryBean;
+import com.ustglobal.library.dto.BookIssuedBean;
+import com.ustglobal.library.dto.UserBean;
+@Repository
+public class IssuedDAOImpl implements IssuedDAO {
+
+	
+	@PersistenceUnit
+	private EntityManagerFactory factory;
+	
+	@Override
+	public boolean addBookIssued(BookIssuedBean bookIssued) {
+		EntityManager entityManager=factory.createEntityManager();
+		EntityTransaction entityTransaction=entityManager.getTransaction();
+		try {
+			entityTransaction.begin();
+			entityManager.persist(bookIssued);
+			entityTransaction.commit();
+			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			entityTransaction.rollback();
+			return false;
+		}
+	}
+
+	@Override
+	public boolean updateBookIssued(BookIssuedBean bookIssued) {
+		EntityManager manager=factory.createEntityManager();
+		EntityTransaction transaction=manager.getTransaction();
+		transaction.begin();
+		BookIssuedBean bookIssuedBean=manager.find(BookIssuedBean.class,bookIssued.getBook_issued_id());
+		bookIssuedBean.setIs_submitted(bookIssued.getIs_submitted());
+		bookIssuedBean.setDispatched_date(bookIssued.getDispatched_date());
+		bookIssuedBean.setSubmission_date(bookIssued.getSubmission_date());
+		bookIssuedBean.setSubmitted_date(bookIssued.getSubmitted_date());
+		transaction.commit();
+		return true;
+	
+	}
+
+	@Override
+	public boolean deleteBookIssued(int book_issued_id) {
+		EntityManager manager=factory.createEntityManager();
+		EntityTransaction transaction=manager.getTransaction();
+		transaction.begin();
+		BookIssuedBean bookIssuedBean=manager.find(BookIssuedBean.class,book_issued_id);
+		manager.remove(bookIssuedBean);
+		transaction.commit();
+		return true;
+		
+	}
+
+	@Override
+	public List<BookIssuedBean> getAllIssued() {
+		EntityManager entityManager=factory.createEntityManager();
+		String jpql="from BookIssuedBean";
+		TypedQuery<BookIssuedBean> query=entityManager.createQuery(jpql,BookIssuedBean.class);
+		List<BookIssuedBean> bookIssued=query.getResultList();
+		return bookIssued;
+	}
+
+	
+
+	@Override
+	public BookIssuedBean getBookIssuedData(int book_issued_id) {
+		EntityManager entityManager=factory.createEntityManager();
+		BookIssuedBean bean=entityManager.find(BookIssuedBean.class,book_issued_id);
+			return bean;
+		}
+	}
+}

@@ -1,0 +1,17 @@
+package com.ustglobal.library.dao;
+
+import com.ustglobal.library.dto.BookInventoryBean;
+import com.ustglobal.library.dto.UserBean;
+
+public interface UserDAO {
+
+	public boolean registerUser(UserBean bean);
+	public UserBean login(String email, String password);
+	public boolean updatePage(UserBean bean);
+	public BookInventoryBean requestBook(int User_id,BookInventoryBean bean);
+	public UserBean getUserData(int user_id);
+	public BookInventoryBean searchBook(int book_inventory_id);
+	public boolean chnagePassword(UserBean bean);
+	public boolean deleteRecord(int user_id);
+	
+}

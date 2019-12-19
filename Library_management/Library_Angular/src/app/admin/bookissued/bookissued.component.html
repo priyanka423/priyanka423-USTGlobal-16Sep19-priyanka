@@ -1,0 +1,109 @@
+<div class="body-background">
+    <div class="register-div text-center">
+  <div class="alert alert-danger" *ngIf='error'>{{error}}</div>
+  <div class="col-md-8 display-inline">
+    <div class="inner-register-div col-lg-6 ">
+    <div class="card-header background-color">
+      <div class="card-title ">
+        <h3>Book Issued</h3>
+      </div>
+    </div>
+    <div class="card-body">
+      <form #bookIssuedForm='ngForm' (ngSubmit)='bookIssued(bookIssuedForm)'>
+        
+        <input type="date" name="dispatched_date" id="dispatched_date" #dispatched_date='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter Book name">
+  
+         <input type="text" name="is_submitted" id="is_submitted" #is_submitted='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter is_submitted">
+  
+        <input type="date" name="submission_date" id="submission_date" #submission_date='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter submission date">
+  
+         <input type="date" name="submitted_date" id="submitted_date" #submitted_date='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter submitted_date"> 
+        
+         <button class="btn btn-primary form-control" type="submit">Add Issued Book</button>
+  
+      </form>
+      </div>
+
+    </div>
+    </div>
+    <div class="col-md-8 offset-2">
+      <table class="table table-bordered table-primary table-hover">
+        <thead>
+          <tr>
+            <th>dispatched_date</th>
+            <th>is_submitted</th>
+            <th>submission_date</th>
+            <th>submitted_date</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+    <tbody>
+        <tr *ngFor = 'let books of getIssuedList'>
+          <!-- <tr *ngFor = 'let books of getIssuedList'> -->
+           <td>{{books.book_issued_id}}</td>
+           <td>{{books.is_submitted}}</td>
+           <td>{{books.submission_date}}</td>
+           <td>{{books.submitted_date }}</td>
+           <td><button type="button" class="btn btn-primary" 
+            data-toggle="modal" data-target="#exampleModal" (click)="selectIssued(books.book_issued_id)">
+            Edit
+          </button></td>
+                      
+
+          <td><button (click)="deleteIssuedData(books.book_issued_id)" type="button" class="btn btn-outline-danger">
+            Delete
+         </button></td>
+           </tr>
+           </tbody>
+</table>
+    </div>
+  <!-- Edit Modal -->
+  <div class="modal fade" id="exampleModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit book info</h4>
+        </div>
+        <div class="modal-body" *ngIf="selectedIssued">
+          <form #bookEditForm='ngForm' (ngSubmit)='updateIssuedData(bookEditForm)'>
+  
+
+            <input type="hidden" name="book_issued_id" id="book_issued_id" #book_issued_id='ngModel'
+            ngModel="{{selectedIssued.book_issued_id}}"
+            class="form-control mb-3">
+
+            <input type="date" name="dispatched_date" id="dispatched_date" #dispatched_date='ngModel'
+             ngModel="{{selectedIssued.dispatched_date}}"
+             class="form-control mb-3" placeholder="Enter Book dispatched date">
+      
+             <input type="text" name="is_submitted" id="is_submitted" #is_submitted='ngModel' ngModel="{{selectedIssued.is_submitted}}"
+             class="form-control mb-3" placeholder="Enter is_submitted name">
+      
+            <input type="date" name="submission_date" id="submission_date" #submission_date='ngModel' ngModel="{{selectedIssued.submission_date}}"
+             class="form-control mb-3" placeholder="Enter submission_date of books">
+      
+             <input type="date" name="submitted_date" id="submitted_date"
+              #submitted_date='ngModel' ngModel="{{selectedIssued.submitted_date}}"
+             class="form-control mb-3" placeholder="Enter submitted date"> 
+            
+             <button class="btn btn-primary form-control" type="submit">Save Changes</button>
+      
+          </form>
+    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    

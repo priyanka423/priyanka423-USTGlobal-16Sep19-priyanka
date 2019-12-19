@@ -1,0 +1,106 @@
+<div class="body-background">
+    <div class="register-div text-center">
+  <div class="alert alert-danger" *ngIf='error'>{{error}}</div>
+  <div class="col-md-8 display-inline">
+    <div class="inner-register-div col-lg-6 ">
+    <div class="card-header background-color">
+      <div class="card-title ">
+        <h3>Add new Book</h3>
+      </div>
+    </div>
+    <div class="card-body">
+      <form #bookAddForm='ngForm' (ngSubmit)='bookAdd(bookAddForm)'>
+  
+        <input type="text" name="book_name" id="book_name" #book_name='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter Book name">
+  
+         <input type="text" name="author" id="author" #author='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter author name">
+  
+        <input type="number" name="count" id="count" #count='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter number of books">
+  
+         <input type="number" name="price" id="price" #price='ngModel' ngModel
+         class="form-control mb-3" placeholder="Enter price"> 
+        
+         <button class="btn btn-primary form-control" type="submit">Add Book</button>
+  
+      </form>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-8 offset-2">
+      <table class="table table-bordered table-dark table-hover">
+        <thead>
+          <tr>
+            <th>Book name</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Available qty</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+    <tbody>
+        <tr *ngFor = 'let books of getBookList.bookInventoryBeans'>
+           <td>{{books.book_name}}</td>
+           <td>{{books.author}}</td>
+           <td>{{books.price }}</td>
+           <td>{{books.count }}</td>
+           <td><button type="button" class="btn btn-primary" 
+            data-toggle="modal" data-target="#exampleModal" (click)="selectUser(books.book_inventory_id)">
+            Edit
+          </button></td>
+                      
+
+          <td><button (click)="deleteData(books.book_inventory_id)" type="button" class="btn btn-outline-danger">
+            Delete
+         </button></td>
+           </tr>
+           </tbody>
+</table>
+    </div>
+  <!-- Edit Modal -->
+  <div class="modal fade" id="exampleModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit book info</h4>
+        </div>
+        <div class="modal-body" *ngIf="selectedUser">
+          <form #bookEditForm='ngForm' (ngSubmit)='updateData(bookEditForm)'>
+  
+
+            <input type="hidden" name="book_inventory_id" id="book_inventory_id" #book_inventory_id='ngModel'
+            ngModel="{{selectedUser.book_inventory_id}}"
+            class="form-control mb-3">
+
+            <input type="text" name="book_name" id="book_name" #book_name='ngModel'
+             ngModel="{{selectedUser.book_name}}"
+             class="form-control mb-3" placeholder="Enter Book name">
+      
+             <input type="text" name="author" id="author" #author='ngModel' ngModel="{{selectedUser.author}}"
+             class="form-control mb-3" placeholder="Enter author name">
+      
+            <input type="number" name="count" id="count" #count='ngModel' ngModel="{{selectedUser.count}}"
+             class="form-control mb-3" placeholder="Enter number of books">
+      
+             <input type="number" name="price" id="price" #price='ngModel' ngModel="{{selectedUser.price}}"
+             class="form-control mb-3" placeholder="Enter price"> 
+            
+             <button class="btn btn-primary form-control" type="submit">Save Changes</button>
+      
+          </form>
+    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  

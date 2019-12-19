@@ -1,0 +1,30 @@
+<div class="body-background">
+    <div class="update-div text-center">
+  <div class="alert alert-danger" *ngIf='error'>{{error}}</div>
+  <div class="col-md-4 offset-md-4 display-inline">
+    <div class="inner-update-div col-lg-6 offset-3">
+    <div class="card-header background-color">
+      <div class="card-title ">
+        <h3>Update</h3>
+      </div>
+    </div>
+    
+      <div class="card-body">
+      <form #updatesForm='ngForm' (ngSubmit)='updates(updatesForm)'>
+        <input type="hidden" class="form-control mb-3" name="user_id" id="user_id"  #user_id='ngModel' ngModel="{{user.user_id}}">
+        <input type="email" name="email" id="email" class="form-control mb-3" #email='ngModel' ngModel="{{user.email}}" readonly>
+        <input type="text" name="name" id="name" class="form-control mb-3"  #name='ngModel' ngModel="{{user.name}}" >
+        <input type="number" name="phone" id="phone" class="form-control mb-3" #phone='ngModel'ngModel="{{user.phone}}"  >
+        <input type="hidden" name="is_librarian" id="is_librarian" class="form-control mb-3" #is_librarian='ngModel'ngModel="{{user.is_librarian}}"  >
+        <input type="hidden" name="password" id="password" class="form-control mb-3" #password='ngModel'ngModel="{{user.password}}"  >
+         <button class="btn btn-primary form-control" type="submit">Update</button>
+  
+      </form>
+      
+    </div>
+    </div>
+    </div>
+  </div>
+  </div>
+  
+  

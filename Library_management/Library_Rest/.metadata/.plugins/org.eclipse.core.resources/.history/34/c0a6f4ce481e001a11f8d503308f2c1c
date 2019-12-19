@@ -1,0 +1,10 @@
+package com.ustglobal.library.dao;
+
+import com.ustglobal.library.dto.BookInventoryBean;
+import com.ustglobal.library.dto.BookIssuedBean;
+
+public interface IssuedDAO {
+	public boolean addBookIssued(BookIssuedBean bookIssued,int user_id,int);
+	public boolean updateBookIssued(BookIssuedBean bookIssued);
+	public boolean deleteBookIssued(int book_issued_id);
+}

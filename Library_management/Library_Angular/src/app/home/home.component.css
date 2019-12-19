@@ -1,0 +1,66 @@
+.body-background{
+    height: auto;
+    background: url('../image/book-1209805_1920.jpg');
+    background-size: cover;
+}
+.font-color{
+    color: #4be3cf;
+}
+.background-color{
+background: #4be3cf !important;
+}
+.blur-back{
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+}
+.div-home2{
+    display: block;
+    background: black;
+    height: 90px;
+}
+.inner-div-1{
+    background: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    padding: 15px;
+    text-align: justify;
+  text-justify: inter-word;
+}
+.inner-div-2{
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    padding: 15px;
+    text-align: justify;
+    text-justify: inter-word;
+    height: 230px;
+}
+.inline-block{
+    display: inline;
+    
+}
+.white-color{
+    color: white;
+    font-size: 6vw;
+}
+.yellow-color{
+    color: black;
+    font-size: 5vw;
+
+}
+.book-purple-font{
+    margin-top: 100px;
+}
+.inner-div-3{
+    background: rgba(255, 255, 255, 0.6) !important;
+    font-size: 18px;
+    padding: 15px;
+    text-align: justify;
+    text-justify: inter-word;
+    height: 200px;
+}
+.w-color{
+    color: white;
+}
+
+.footer-text{
+    padding-top: 30px;
+}
