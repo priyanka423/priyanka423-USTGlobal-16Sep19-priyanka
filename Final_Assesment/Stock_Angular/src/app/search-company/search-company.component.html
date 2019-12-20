@@ -1,0 +1,28 @@
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- The form -->
+    <div class="body-background">
+    <div class="abc" *ngIf="error">{{ error }}</div>
+    <form class="example" #searchForm="ngForm"  (ngSubmit)=search(searchForm)>
+      <input type="text" placeholder="Please Enter Product Company.." 
+      name="name" #name="ngModel"
+      ngModel>
+      <button type="submit" (click)="selectUser(datas.company)"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="col-md-3 offset-4">
+     <br> <table class="table table-bordered table-dark table-hover">
+        <thead>
+          <tr>
+            <th>Company</th>
+          </tr>
+        </thead>
+    <tbody>
+        <tr *ngFor = 'let datas of getCompny.productBeans'>
+           <td>{{datas.company}}</td>
+           </tr>
+           </tbody>
+           </table>
+  </div>
+
+

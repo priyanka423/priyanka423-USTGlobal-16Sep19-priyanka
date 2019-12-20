@@ -1,0 +1,23 @@
+.update-div{
+    display: inline;
+    margin-top: 10px !important;
+}
+.display-inline{
+    display: inline;
+}
+.inner-update-div{
+    box-shadow: 10px 5px 10px 5px gray;
+    border-radius: 15px;
+}
+.font-color{
+    color: #4be3cf;
+}
+.background-color{
+background: #4be3cf !important;
+}
+.card-title h3{
+    color: black;
+}
+.card-header{
+    border-radius: 15px 15px 0px 0px;
+}

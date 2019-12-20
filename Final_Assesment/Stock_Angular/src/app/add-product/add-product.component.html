@@ -1,0 +1,89 @@
+<div class="body-background">
+    <div class="register-div text-center">
+        <div class="alert alert-danger" *ngIf='error'>{{error}}</div>
+        <div class="col-md-4 offset-md-4 display-inline">
+            <div class="inner-register-div col-lg-6 offset-3">
+                <div class="card-header background-color">
+                    <div class="card-title ">
+                        <h3>Add Product</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form #registerForm='ngForm' (ngSubmit)='register(registerForm)'>
+
+                        <input type="text" name="category" id="category" #category='ngModel' ngModel
+                            class="form-control mb-3" placeholder="Enter category">
+
+                        <div *ngIf="category.invalid && (category.dirty || category.touched)"
+                            class="alert alert-danger">
+                            category
+                            <div *ngIf="category.errors.required">
+                                category is required.
+                            </div>
+                            <div *ngIf="category.errors.minlength">
+                                category must be at least 2 characters long.
+                            </div>
+                        </div>
+
+
+                        <input type="text" name="company" id="company" #company='ngModel' ngModel
+                            class="form-control mb-3" placeholder="Enter role company" required>
+
+                        <div *ngIf="company.invalid && (company.dirty || company.touched)" class="alert alert-danger">
+                            company
+                            <div *ngIf="company.errors.required">
+                                company is required.
+                            </div>
+                            <div *ngIf="company.errors.minlength">
+                                company must be at least 4 characters long.
+                            </div>
+                        </div>
+
+                        <input type="text" name="name" id="name" #name='ngModel' ngModel class="form-control mb-3"
+                            placeholder="Enter name" required minlength="4">
+
+                        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                            name
+                            <div *ngIf="name.errors.required">
+                                name is required.
+                            </div>
+                            <div *ngIf="name.errors.minlength">
+                                name must be at least 4 characters long.
+                            </div>
+                        </div>
+
+
+                        <input type="number" name="price" id="price" #price='ngModel' ngModel class="form-control mb-3"
+                            placeholder="Enter price">
+
+
+                        <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
+                            price
+                            <div *ngIf="price.errors.required">
+                                price is required.
+                            </div>
+                            <div *ngIf="price.errors.minlength">
+                                price must be at least 4 characters long.
+                            </div>
+                        </div>
+
+                        <input type="number" name="quantity" id="quantity" #quantity='ngModel' ngModel
+                            class="form-control mb-3" placeholder="Enter quantity number" required>
+
+                        <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)"
+                            class="alert alert-danger">
+                            number
+                            <div *ngIf="quantity.errors.required">
+                                number is required.
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-primary form-control" type="submit">Add Product</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
